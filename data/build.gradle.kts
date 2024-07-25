@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-	namespace = "base.android.core"
-	compileSdk = 34
+	namespace = "base.android.data"
+	compileSdk = libs.versions.android.compileSdk.get().toInt()
 	
 	defaultConfig {
-		minSdk = 24
+		minSdk = libs.versions.android.minSdk.get().toInt()
 		
 		testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 		consumerProguardFiles("consumer-rules.pro")
@@ -34,6 +34,13 @@ android {
 
 dependencies {
 	
-	implementation(libs.arrow.core)
-	implementation(libs.coroutines.core)
+	implementation(libs.ktor.client.android)
+	implementation(libs.ktor.client.contentNegotiation)
+	implementation(libs.ktor.client.logging)
+	
+//	api(libs.room.ktx)
+//	api(libs.room.runtime)
+//	implementation(libs.room.compiler)
+	
+	
 }
