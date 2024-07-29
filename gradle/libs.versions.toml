@@ -4,20 +4,21 @@ android-minSdk = "26"
 android-targetSdk = "34"
 android-version-code = "1"
 android-version-name = "1.0"
+
 agp = "8.3.1"
-kotlin = "1.9.24"
+kotlin = "2.0.0"
 coreKtx = "1.13.1"
 junit = "4.13.2"
 junitVersion = "1.1.5"
 espressoCore = "3.5.1"
 lifecycleRuntimeKtx = "2.8.3"
-activityCompose = "1.9.0"
-composeBom = "2024.05.00"
+activityCompose = "1.9.1"
+composeBom = "2024.06.00"
 appcompat = "1.7.0"
 material = "1.12.0"
 androidx-espresso-core = "3.5.1"
 androidx-test-junit = "1.1.5"
-compose = "2024.05.00"
+compose = "2024.06.00"
 nav_compose = "2.8.0-beta02"
 coil_compose = "2.6.0"
 kotlin_android = "1.9.24"
@@ -31,6 +32,7 @@ room = "2.7.0-alpha03"
 timber = "5.0.1"
 activity = "1.9.0"
 arrow = "1.2.4"
+multidex = "2.0.1"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -48,7 +50,8 @@ androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit
 androidx-material3 = { group = "androidx.compose.material3", name = "material3" }
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
-
+timber = { module = "com.jakewharton.timber:timber", version.ref = "timber" }
+androidx-multidex = { group = "androidx.multidex", name = "multidex", version.ref = "multidex" }
 
 ## Compose
 compose-bom = { module = "androidx.compose:compose-bom", version.ref = "compose" }
@@ -103,4 +106,5 @@ androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-co
 androidApplication = { id = "com.android.application", version.ref = "agp" }
 jetbrainsKotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 androidLibrary = { id = "com.android.library", version.ref = "agp" }
+kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 

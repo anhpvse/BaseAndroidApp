@@ -1,6 +1,8 @@
 plugins {
 	alias(libs.plugins.androidApplication)
 	alias(libs.plugins.jetbrainsKotlinAndroid)
+	alias(libs.plugins.kotlin.compose)
+	
 }
 
 android {
@@ -13,6 +15,7 @@ android {
 		targetSdk = libs.versions.android.targetSdk.get().toInt()
 		versionCode = libs.versions.android.version.code.get().toInt()
 		versionName = libs.versions.android.version.name.get()
+		multiDexEnabled = true
 		
 		testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 		vectorDrawables {
@@ -38,9 +41,10 @@ android {
 	}
 	buildFeatures {
 		compose = true
+		buildConfig = true
 	}
 	composeOptions {
-		kotlinCompilerExtensionVersion = "1.5.14"
+		kotlinCompilerExtensionVersion = libs.versions.compose.toString()
 	}
 	packaging {
 		resources {
@@ -74,6 +78,8 @@ dependencies {
 	implementation(libs.koin.core)
 	implementation(libs.koin.compose)
 	implementation(libs.koin.android)
+	
+	implementation(libs.androidx.multidex)
 	
 	implementation(project(":core"))
 	implementation(project(":data"))
