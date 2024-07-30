@@ -13,11 +13,11 @@ val basePath = "${rootDir.absolutePath}/config/"
 
 android {
 	namespace = "base.android.data"
-	compileSdk = libs.versions.android.compileSdk.get().toInt()
 	
 	defaultConfig {
-		testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-		consumerProguardFiles("consumer-rules.pro")
+		compileSdk = libs.versions.android.compileSdk.get().toInt()
+		minSdk = libs.versions.android.minSdk.get().toInt()
+		multiDexEnabled = true
 	}
 	
 	buildFeatures {
@@ -59,6 +59,8 @@ dependencies {
 	implementation(libs.ktor.client.contentNegotiation)
 	implementation(libs.ktor.client.logging)
 	implementation(libs.ktor.client.core)
+	
+	implementation(libs.androidx.multidex)
 	
 	api(project(":domain"))
 	
