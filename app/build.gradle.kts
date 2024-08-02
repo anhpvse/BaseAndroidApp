@@ -79,6 +79,8 @@ dependencies {
 	implementation(libs.koin.compose)
 	implementation(libs.koin.android)
 	
+	implementation(libs.compose.navigation)
+	
 	implementation(libs.androidx.multidex)
 	
 	implementation(project(":core"))
