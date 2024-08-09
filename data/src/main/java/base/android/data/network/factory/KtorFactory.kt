@@ -1,5 +1,6 @@
 package base.android.data.network.factory
 
+import androidx.compose.runtime.key
 import io.ktor.client.HttpClient
 import io.ktor.client.engine.android.*
 import io.ktor.client.plugins.DefaultRequest
@@ -16,7 +17,9 @@ import io.ktor.client.request.header
 import io.ktor.http.ContentType
 import io.ktor.http.HttpHeaders
 import io.ktor.http.URLProtocol
+import io.ktor.http.append
 import io.ktor.http.contentType
+import io.ktor.http.headers
 import io.ktor.http.path
 import io.ktor.serialization.kotlinx.json.json
 import kotlinx.serialization.ExperimentalSerializationApi
@@ -24,7 +27,7 @@ import kotlinx.serialization.json.Json
 import timber.log.Timber
 
 object KtorClientFactory {
-    private const val NETWORK_TIME_OUT = 6_000L
+    private const val NETWORK_TIME_OUT = 4_000L
 
     @OptIn(ExperimentalSerializationApi::class)
     fun getInstance(
@@ -65,12 +68,13 @@ object KtorClientFactory {
                         Timber.tag("HTTP status:").d(response.status.value.toString())
                     }
                 }
-
+                
                 install(DefaultRequest) {
-                    header(
-                        HttpHeaders.ContentType,
-                        ContentType.Application.Json
-                    )
+                    headers {
+                        append("X-Parse-Application-Id", "PublicData.Application_Id")
+                        append("X-Parse-REST-API-Key", "PublicData.REST_API_Key")
+                        append(HttpHeaders.ContentType, ContentType.Application.Json)
+                    }
                 }
 
                 defaultRequest {

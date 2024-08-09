@@ -25,6 +25,8 @@ class MainActivity : ComponentActivity() {
 		setContent {
 			navController = rememberNavController()
 			
+			
+			println("---------MainActivity-----------")
 			CompositionLocalProvider(
 			) {
 				BaseTheme {

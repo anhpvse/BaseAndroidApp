@@ -7,6 +7,6 @@ import base.android.domain.models.wrappers.NetworkCallResult
 import kotlinx.coroutines.flow.Flow
 
 interface Repository {
-	suspend fun login(model: BaseRequestModel): Flow<NetworkCallResult<BaseResponseModel, CallFailure>>
-	suspend fun getUserInfo(model: BaseRequestModel): Flow<NetworkCallResult<BaseResponseModel, CallFailure>>
+	suspend fun get(model: BaseRequestModel): Flow<NetworkCallResult<BaseResponseModel, CallFailure>>
+	suspend fun post(model: BaseRequestModel): Flow<NetworkCallResult<BaseResponseModel, CallFailure>>
 }

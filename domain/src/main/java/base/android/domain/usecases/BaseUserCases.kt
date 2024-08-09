@@ -9,8 +9,8 @@ class BaseUserCases(
 	private val repository: Repository,
 	private val dispatcher: CoroutineDispatcher
 ) {
-	suspend fun fetchLogin(requestModel: BaseRequestModel) =
+	suspend fun fetchData(requestModel: BaseRequestModel) =
 		withContext(dispatcher) {
-			repository.login(requestModel)
+			repository.get(requestModel)
 		}
 }

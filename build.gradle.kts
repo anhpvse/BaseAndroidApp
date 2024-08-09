@@ -4,5 +4,6 @@ plugins {
 	alias(libs.plugins.jetbrainsKotlinAndroid) apply false
 	alias(libs.plugins.androidLibrary) apply false
 	alias(libs.plugins.kotlin.compose) apply false
+	alias(libs.plugins.android.dynamic.feature) apply false
 	
 }

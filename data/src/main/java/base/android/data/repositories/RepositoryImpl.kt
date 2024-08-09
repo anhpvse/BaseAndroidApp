@@ -17,10 +17,9 @@ class RepositoryImpl(
 	private val apiServices: ApiServices,
 	private val dispatcher: CoroutineDispatcher
 ) : Repository {
-	override suspend fun login(model: BaseRequestModel) =
+	override suspend fun get(model: BaseRequestModel) =
 		flow<NetworkCallResult<BaseResponseModel, CallFailure>> {
-			val result = apiServices.fetchData<BaseRequestModel, BaseResponseModel>(model)
-			
+			val result = apiServices.getData<BaseRequestModel, BaseResponseModel>(model)
 			result.data?.let {
 				println("--------------data-------------------")
 				println(result.data)
@@ -52,9 +51,11 @@ class RepositoryImpl(
 				)
 			}
 	
-	override suspend fun getUserInfo(model: BaseRequestModel): Flow<NetworkCallResult<BaseResponseModel, CallFailure>> {
+	override suspend fun post(model: BaseRequestModel): Flow<NetworkCallResult<BaseResponseModel, CallFailure>> {
 		TODO("Not yet implemented")
 	}
+	
+}
 
 //	private suspend fun <T : BaseRequestModel, E : BaseResponseModel> performNetworkCall(
 //		model: T
@@ -87,4 +88,4 @@ class RepositoryImpl(
 //			)
 //		)
 //	}
-}
+//}

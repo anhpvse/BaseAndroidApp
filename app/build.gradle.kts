@@ -2,7 +2,7 @@ plugins {
 	alias(libs.plugins.androidApplication)
 	alias(libs.plugins.jetbrainsKotlinAndroid)
 	alias(libs.plugins.kotlin.compose)
-	
+	alias(libs.plugins.kotlin.serialization)
 }
 
 android {
@@ -83,6 +83,8 @@ dependencies {
 	
 	implementation(libs.androidx.multidex)
 	
+	implementation(project(":feature:login"))
 	implementation(project(":core"))
 	implementation(project(":data"))
+	implementation(project(":domain"))
 }
